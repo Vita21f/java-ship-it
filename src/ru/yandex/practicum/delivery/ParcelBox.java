@@ -11,11 +11,19 @@ public class ParcelBox<T extends Parcel> {
     }
 
     public void add(T parcel, int weight) {
-        if (weight < maxWeight) {
+        int currentWeight = getCurrentWeight();
+        if ((currentWeight+weight) < maxWeight) {
             parcelsOfBoxList.add(parcel);
         } else {
             System.out.println("Вес превышен. Посылка не добавлена в коробку.");
         }
+    }
+    private int getCurrentWeight() {
+        int totalWeight = 0;
+        for (T parcel : parcelsOfBoxList) {
+            totalWeight += parcel.getWeight();
+        }
+        return totalWeight;
     }
 
     public void getAllParcels() {

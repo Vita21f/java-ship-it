@@ -10,7 +10,7 @@ public class DeliveryApp {
     private static List<Parcel> allParcels = new ArrayList<>();
     private static ArrayList<FragileParcel> fragileParcels = new ArrayList<>();
 
-    private static ParcelBox<StandartParcel> standartBox = new ParcelBox<>(500);
+    private static ParcelBox<StandardParcel> standardBox = new ParcelBox<>(500);
     private static ParcelBox<FragileParcel> fragileBox = new ParcelBox<>(300);
     private static ParcelBox<PerishableParcel> perishableBox = new ParcelBox<>(700);
 
@@ -70,9 +70,9 @@ public class DeliveryApp {
 
         switch (type) {
             case 1:
-                StandartParcel standartParcel = new StandartParcel(description, weight, deliveryAddress, sendDay);
-                allParcels.add(standartParcel);
-                standartBox.add(standartParcel, weight);
+                StandardParcel standardParcel = new StandardParcel(description, weight, deliveryAddress, sendDay);
+                allParcels.add(standardParcel);
+                standardBox.add(standardParcel, weight);
                 break;
             case 2:
                 FragileParcel fragileParcel = new FragileParcel(description, weight, deliveryAddress, sendDay);
@@ -132,7 +132,7 @@ public class DeliveryApp {
         System.out.println("3 — Скоропортящейся коробки");
         int command = Integer.parseInt(scanner.nextLine());
         if (command == 1) {
-            standartBox.getAllParcels();
+            standardBox.getAllParcels();
         } else if (command == 2) {
             fragileBox.getAllParcels();
         } else if (command == 3) {

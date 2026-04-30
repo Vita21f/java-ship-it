@@ -12,6 +12,9 @@ public abstract class Parcel {
         this.deliveryAddress = deliveryAddress;
         this.sendDay = sendDay;
     }
+    public int getWeight() {
+        return weight;
+    }
 
     public void packageItem(){
         System.out.printf("Посылка <<%s>> упакована%n", this.description);
